@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-#from . import views
+from lookup import views
 
 urlpatterns = [
-    #path('', views.item_list, name='item_list'),
-    #path('search/', views.item_search, name='item_search'),
+    path('', views.index, name='main.html'),
+    path('upload_file/', views.upload_file, name='upload_file'),
+    path('login/', views.login_user, name='login'),
+    path('logout/', views.logout_user, name='logout'),
+    path('flowfile_list/', views.flowfile_list, name='flowfile_list'),
+    path('detail/<str:file_name>', views.flowfile_detail, name='flowfile_detail'),
     path('admin/', admin.site.urls),
 ]

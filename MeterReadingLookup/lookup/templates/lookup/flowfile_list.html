@@ -1,0 +1,24 @@
+{% extends 'lookup/main.html' %}
+{% block title %}
+<title>Login Page</title>
+{% endblock title %}
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+    <h1>Energy Flow Files Available</h1>
+    <ul>
+    {% for filename in files %}
+        <li><a href="{% url 'flowfile_detail' filename%}">{{ filename }}</a></li>
+    {% endfor %}
+            <!-- View All button -->
+
+        <button type="reset"><a href="{% url 'flowfile_detail' 'all' %}">View All</a></button>
+
+    </ul>
+{% endblock body %}

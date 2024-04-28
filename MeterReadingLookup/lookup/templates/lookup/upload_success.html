@@ -1,0 +1,19 @@
+{% extends 'lookup/main.html' %}
+{% block title %}
+<title>Login Page</title>
+{% endblock title %}
+
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+<h6>File Uploaded Successfully. Goto View File to see the new file</h6>
+    <p>{{ file_name }}</p>
+    <p>{{ file_content }}</p>
+{% endblock body %}
