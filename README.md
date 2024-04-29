@@ -1,3 +1,6 @@
+Author : Meghana Rao
+Email: mvmeghana@gmail.com
+
 Projet name : MeterReadingLookUp
 Description : 
 •	Hosts the application to view all the available/ uploaded electricity consumption data flow files.
