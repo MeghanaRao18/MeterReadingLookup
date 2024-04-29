@@ -50,7 +50,7 @@ App templates:
 Instruction To Setup
 
     1.  Transfer the Tarball to the Deployment Server
-    2.	Extract the Tarball to any location: tar -xzvf MeterReadingLookup.tar.gz
+    2.	Extract the Tarball to any location: tar -xzvf MeghanaRao_project.tar.gz
     3.	Navigate to the extracted project directory and activate the virtual environment:
              source /path/to/your/venv/bin/activate/OE_env   
     4.  Install Dependencies: pip  install -r requirements.txt
