@@ -16,6 +16,12 @@ Virtual Env : OE_env - created the virtual environment inside project
               Django version 5.0.4
               database: PostgreSQL
               database name : mydatabase
+              asgiref==3.8.1
+              Django==5.0.4
+              djangorestframework==3.15.1
+              psycopg2-binary==2.9.9
+              sqlparse==0.5.0
+
 
 
 Assumptions: 
