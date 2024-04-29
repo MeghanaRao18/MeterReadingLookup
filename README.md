@@ -1,13 +1,13 @@
 Projet name : MeterReadingLookUp
-Description : Hosts the application to  view all the available/ uploaded electricity consumption data flow files
-              The application also supports searching of data based on MPAN or serial number of the electric meter
+Description : 
+•	Hosts the application to view all the available/ uploaded electricity consumption data flow files.
+•	The application also supports searching for data based on MPAN or serial number of the electric meter.
 
-      
 Application Name : Lookup
 
-This Application takes the file through mamagement command as command line argument 
+•	This Application takes the file through the management command as command-line argument 
                              or
-The File can be uploaded through web under "Upload File" Option once the user is logged in.
+•	Once the user is logged in, the file can be uploaded through the web under the "Upload File" Option.
 
 
 Prerequisited and installers
@@ -26,14 +26,15 @@ Virtual Env : OE_env - created the virtual environment inside project
 
 Assumptions: 
   
-  - Data flow files are available locally and placed in ../myproject/MeterReadingLookup/MeterReadingLookup/files/  folder.
-  - 2 sample files are created and placed in above path to test the application and parser code.
-  - The file is assumed to always have the main MPAN_core fields and only relevant data fields are extracted ( not all fields).
-  - It is assumed that every MPAN_core field will have one serial_number associated. However Reading Registers can be multiple.
-  - Only admin ( username: admin, password: meghanarao) is authenticated and allowed to login and upload, view or search for meter reading data as of now.
-  - Test cases are developed based on the above assumptions. 
+  1.	Data flow files are available locally and placed in ../myproject/MeterReadingLookup/MeterReadingLookup/files/  folder.
+  2.	2 sample files are created and placed in above path to test the application and parser code.
+  3.	The file is assumed to always have the main MPAN_core fields, and only relevant data fields ( not all fields) are extracted.
+  4.	It is assumed that every MPAN_core field will have one serial_number associated. However Reading Registers can be multiple.
+  5.	As of now, only the admin ( username: admin, password: meghanarao) is authenticated and allowed to log in and upload, view, or search for meter reading data.
+  6.	Test cases are developed based on the above assumptions. 
 
-App templates
+App templates:
+
   - home/main page: Option to login
   - Login Page : To enter user name and password
   - Post Successful login : Home page with logout, View Files and Upload Files options
@@ -95,13 +96,15 @@ To Run the App:
        - python3 manage.py test lookup.tests.<ClassName>
 
 Enhancements
-    - Adding mmultiple user registration authentication capabilities.
-    - Adding nested database schema and parsing of the nested data from file with error handling for missing levels from flow file as per the specification
-    - Using Django rest framework to serialize the large data files.
-    - Model to have all the fields ( as per D0010 specification), parsing all of them from file to store into database with thorough testing. Currently only few fields are handled and 
-      stored
-    - Elaborated test cases to validate  all the CRUD operations on all the fields of the database  
-    - Better and more scalable Database can be used to handle large, unstructured data files - example MongoDB
+1.	Adding multiple user registration authentication capabilities.
+2.	Adding nested database schema and parsing of the nested data from a file with error handling for missing levels from the flow file as per the specification.
+3.	Using Django rest framework to serialise the large data files.
+4.	Model to have all the fields ( as per D0010 specification), parsing all of them from file to store into the database with thorough testing. Currently, only a few fields are handled and Stored.
+5.	Elaborated test cases to validate  all the CRUD operations on all the fields of the database  
+6.	A better and more scalable Database can be used to handle large, unstructured data files – for example MongoDB
+
+
+
     
 
 
