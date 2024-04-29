@@ -1,6 +1,6 @@
 {% extends 'lookup/main.html' %}
 {% block title %}
-<title>Login Page</title>
+<title>File List Page</title>
 {% endblock title %}
 {% block body %}
 {% for message in messages %}
@@ -11,7 +11,7 @@
     </button>
   </div>
   {% endfor %}
-    <h1>Energy Flow Files Available</h1>
+    <h5>Energy Consumption Flow Files</h5>
     <ul>
     {% for filename in files %}
         <li><a href="{% url 'flowfile_detail' filename%}">{{ filename }}</a></li>

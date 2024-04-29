@@ -1,6 +1,6 @@
 {% extends 'lookup/main.html' %}
 {% block title %}
-<title>Login Page</title>
+<title>Upload Status Page</title>
 {% endblock title %}
 
 
@@ -13,7 +13,12 @@
     </button>
   </div>
   {% endfor %}
-<h6>File Uploaded Successfully. Goto View File to see the new file</h6>
+    {% if status == "failure" %}
+        <h6 style="color:red">File Upload Failed. Message {{ failure_msg }} </h6>
+    {% else %}
+    <h6>File Uploaded Successfully. Goto View File to see the new file</h6>
     <p>{{ file_name }}</p>
+    {% endif %}
+
     <p>{{ file_content }}</p>
 {% endblock body %}

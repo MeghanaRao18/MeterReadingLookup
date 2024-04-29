@@ -1,3 +1,4 @@
+from datetime import timezone
 
 from django.db import models
 
@@ -19,6 +20,7 @@ class RegisterReadings(models.Model):
     reading_reason_code = models.CharField(max_length=2)
     reading_status = models.CharField(max_length=2)
     site_visit_check_code = models.CharField(max_length=2)
+    # One MPAN and serial number can have multiple meter ids and  registries
     mpan = models.ForeignKey(ParsedData, on_delete=models.CASCADE)
 
 
