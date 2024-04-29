@@ -14,7 +14,7 @@ Prerequisited and installers
 Virtual Env : OE_env - created the virtual environment inside project
               Python 3.12.3
               Django version 5.0.4
-              database: PostgreSQL
+              database: PostgreSQL 16
               database name : mydatabase
               asgiref==3.8.1
               Django==5.0.4
