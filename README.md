@@ -42,9 +42,27 @@ App templates
   - FlowFile_Details:  Template to display all the contents of single or multiple files in a tabular form. This includes even Search Operation
   - Upload File : Browse the file from local path and upload to the application to be parsed and stored into Database
   - Upload status: Displays the status of the upload operation
-    
+
+Instruction To Setup
+
+    1.  Transfer the Tarball to the Deployment Server
+    2.	Extract the Tarball to any location: tar -xzvf MeterReadingLookup.tar.gz
+    3.	Navigate to the extracted project directory and activate the virtual environment:
+             source /path/to/your/venv/bin/activate/OE_env   
+    4.  Install Dependencies: pip  install -r requirements.txt
+    5.	Set Up the Database:
+        - The database used for this project is PostgreSQL and the dump of the same is present in the project folder .. /MeterReadingLookup/dump_file.sql
+        - If PostgreSQL is installed, create a new database using the below command
+ 		      createdb -U postgres your_database_name  
+        -	Use the psql command-line tool.Replace your_database_name with the name database used in the project <mydatabase> and dump_file.sql with the <dump_file.sql> of the shared              database dump:
+          psql -U postgres -d your_database_name -f dump_file.sql
+        - Update Django Settings: Update your Django project's settings (settings.py) to point to the newly created PostgreSQL database.
+    6.  Run DB Migration
+          python manage.py migrate
+
 To Run the App:
     App name : lookup
+
     Step 1:  To pass the file as command line to management command and store in database. This framework can take single or multiple files to be parsed.
             python manage.py parse_file <file1, file2, file3 >
             Example :   python3 manage.py parse_file ../myproject/MeterReadingLookup/MeterReadingLookup/files/D0010_Sample1.txt, 
@@ -52,7 +70,6 @@ To Run the App:
             NOTE: parse_file.py is located at MeterReadingLookup/lookup/management/commands/
     Step 2 : Once the data is stored in database. Start the application server
              python3 manage.py runserver
-
     Step 3 : Open the server at  http://127.0.0.1:8000/
              To access Admin page, goto  http://127.0.0.1:8000/admin
              Admin username : admin
@@ -63,19 +80,19 @@ To Run the App:
     Step 5 : To upload a file , goto Upload file tab and browse to any txt file locally. On successful upload, the filename gets listed under <View Files>
 
  To Run the test cases:
-   -  All the test case classes are defined in lookup/tests.py
-   The test case Classes are as follows:
-   1. FileParsingTestCase
-   2. UploadFileTestCase
-   3. DisplayFilesTestCase
-   4. SearchOperationTestCase
+       
+      All the test case classes are defined in lookup/tests.py
+      The test case Classes are as follows:
+         1. FileParsingTestCase
+         2. UploadFileTestCase
+         3. DisplayFilesTestCase
+         4. SearchOperationTestCase
 
-   To Run the above classes together use the below cmd:
-     -  python3 manage.py test lookup
+      To Run the above classes together use the below cmd:
+       -  python3 manage.py test lookup
 
-   To Run tests in individual classes use the below cmd:
-     - python3 manage.py test lookup.tests.<ClassName>
-
+     To Run tests in individual classes use the below cmd:
+       - python3 manage.py test lookup.tests.<ClassName>
 
 Enhancements
     - Adding mmultiple user registration authentication capabilities.
